@@ -1,0 +1,83 @@
+# QuickCryptor - didactic cryptography software.
+
+QuickCryptor is an encryption/decryption tool written in C with educational purposes. QuickCryptor is a sample program with some good practices in a GNU C project. QuickCryptor code aims to be easy to read, structured, well commented and useful at the same time. QuickCryptor doesn't guarantee the safety of the cipher and like I've said before: "it's only for educational purpose".
+
+## Project structure
+
+QuickCryptor functionality has been divided between the members of our "staff":
+
++ Fileman is in charge of reading and writing files.
+
++ Quickman is in charge of cryptographic operations like cipher, decipher and more.
+
++ Main (not a member), it's where all the pieces are joint to make QuickCryptor work and you are free to implement your own.
+
+Each member is distributed in two files: header and source.
+
++ In the header, all the functions, enumerations and structures are declared to be used in the main function.
+
++ In the source, we implement the logic of those functions.
+
+## Classes
+
+Where are the classes in this project? Well, since there are no classes in C, we simulate them. We encapsulate fields inside structures, and we define independent functions (constructors, setters and getters) taking as input a pointer to the struct and the parameters.
+Here's an example:
+
+```c
+typedef struct
+{
+	char* name;
+	int sex;
+	int age;
+
+} person_t;
+
+person_t* person_new (char* name, int sex, int age)
+{
+	person_t* person = malloc(sizeof (person_t));
+	person->name = name;
+	person->sex = sex;
+	person->age = age;
+	return person;
+}
+
+void person_set_name (person_t* person, char* name)
+{
+	person->name = name;
+}
+
+char* person_get_name (person_t* person)
+{
+	return person->name;
+}
+
+...
+
+void person_free (person_t* person)
+{
+	free (person);
+}
+
+```
+
+## IDE
+
+This project was made using Anjuta IDE.
+I recommend you Anjuta because it's a very full-featured IDE, offering GNU templates, GTK+ support and more.
+https://anjuta.org
+
+# Build and install instructions
+
+Cd into the root of QuickCryptor folder and run the following commands:
+
+```bash
+./autogen.sh # might require some dependencies.
+make
+sudo make install
+```
+
+**TIP:** Sometimes, C projects require many dependencies, which you will need to install in order to configure successfully your project. Please be patient and relax, don't give up or you will never learn.
+
+# Documentation
+
+I invite you to create the QuickCryptor documentation on your own, so you will test your ability to understand code, be part of something, maybe contribute in an open source project for the first time and feel a hero; all at the same time. Any documentation will be welcomed.
