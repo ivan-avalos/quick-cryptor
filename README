@@ -64,7 +64,7 @@ void person_free (person_t* person)
 
 This project was made using Anjuta IDE.
 I recommend you Anjuta because it's a very full-featured IDE, offering GNU templates, GTK+ support and more.
-https://anjuta.org
+http://anjuta.org
 
 # Build and install instructions
 
